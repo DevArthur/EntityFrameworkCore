@@ -9,6 +9,9 @@ namespace CinemaApp.Entities
         public bool InBillboard { get; set; }
         public DateTime ReleaseDate { get; set; }
         //[Unicode(false)]
-        public string  PosterURL { get; set; }
+        public string PosterURL { get; set; }
+        public HashSet<Genre> Genres { get; set; }
+        public HashSet<CinemaRoom> CinemaRooms { get; set; }
+        public HashSet<FilmActor> FilmActors { get; set; }
     }
 }

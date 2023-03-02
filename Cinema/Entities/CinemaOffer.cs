@@ -6,5 +6,6 @@
         public DateTime StartDate { get; set; }
         public DateTime FinishDate { get; set; }
         public decimal DiscountRate { get; set; }
+        public int CinemaId { get; set; }
     }
 }

@@ -1,5 +1,7 @@
 ﻿using CinemaApp.Entities;
+using CinemaApp.Entities.Configurations;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 namespace CinemaApp
 {
@@ -9,47 +11,31 @@ namespace CinemaApp
         {
         }
 
+        // overriding this method, you can set a data type by default, for example: When you declare
+        // a DateTime type in a property, by default it will be SQL date.
+        // This is the reason the DateTime properties are commented in the Api Fluent.
+        protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
+        {
+            base.ConfigureConventions(configurationBuilder);
+            configurationBuilder.Properties<DateTime>().HaveColumnType("date");
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            //Change the table and schema names
-            //modelBuilder.Entity<Genre>()
-            //    .ToTable(name: "GenreTable", schema: "movies");
-                
-            modelBuilder.Entity<Genre>().HasKey("Id");
-            // modelBuilder.Entity<Genre>().Property(p => p.Name).HasMaxLength(150);
-            // modelBuilder.Entity<Genre>().Property(p => p.Name).IsRequired();
-            // Or you can configure many aspects for the same column:
-            modelBuilder.Entity<Genre>().Property(p => p.Name)
-                .HasMaxLength(150)
-                .IsRequired();
-            //change column name
-            //.HasColumnName("GenreName");
+            // It's a way to do it for every single classConfig:
+            // modelBuilder.ApplyConfiguration(new GenreConfig());
 
-            modelBuilder.Entity<Actor>().Property(p => p.Name)
-                .HasMaxLength(150);
-
-            modelBuilder.Entity<Actor>().Property(p => p.BirthDate)
-                .HasColumnType("date");
-
-            modelBuilder.Entity<Cinema>().Property(p => p.Price)
-                .HasPrecision(precision: 9, scale: 2);
-
-            modelBuilder.Entity<Film>().Property(p => p.Title)
-                .HasMaxLength(250)
-                .IsRequired();
-
-            modelBuilder.Entity<Film>().Property(p => p.ReleaseDate)
-                .HasColumnType("date");
-
-            modelBuilder.Entity<Film>().Property(p => p.PosterURL)
-                .HasMaxLength(500)
-                .IsUnicode(false);
+            // Or you can do it for assambly like this: This is for any class that implements
+            // IEntityTypeConfiguration Interface
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
         }
         public DbSet<Genre> Genres { get; set; }
         public DbSet<Actor> Actors { get; set; }
         public DbSet<Cinema> Cinemas { get; set; }
+        public DbSet<CinemaRoom> CinemasRooms { get; set; }
+        public DbSet<FilmActor> FilmsActors { get; set;}
     }
 }

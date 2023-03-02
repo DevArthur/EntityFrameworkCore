@@ -20,5 +20,6 @@ namespace CinemaApp.Entities
         //[Column(name:"GenreName")] -> change column name from Name to 
                                      // GenreName in the database
         public string Name { get; set; }
+        public HashSet<Film> Films { get; set; }
     }
 }

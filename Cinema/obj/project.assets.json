@@ -2351,19 +2351,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\alopez\\.nuget\\packages\\": {}
+    "C:\\Users\\devlo\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\alopez\\source\\repos\\Cinema\\Cinema\\CinemaApp.csproj",
+      "projectUniqueName": "C:\\Users\\devlo\\Source\\Repos\\EntityFrameworkCore\\Cinema\\CinemaApp.csproj",
       "projectName": "CinemaApp",
-      "projectPath": "C:\\Users\\alopez\\source\\repos\\Cinema\\Cinema\\CinemaApp.csproj",
-      "packagesPath": "C:\\Users\\alopez\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\alopez\\source\\repos\\Cinema\\Cinema\\obj\\",
+      "projectPath": "C:\\Users\\devlo\\Source\\Repos\\EntityFrameworkCore\\Cinema\\CinemaApp.csproj",
+      "packagesPath": "C:\\Users\\devlo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\devlo\\Source\\Repos\\EntityFrameworkCore\\Cinema\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\alopez\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\devlo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

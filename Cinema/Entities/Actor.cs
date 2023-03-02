@@ -11,5 +11,6 @@ namespace CinemaApp.Entities
         //that is mapping from DateTime .NET to datetime:
         //[Column(TypeName ="Date")]
         public DateTime BirthDate { get; set; }
+        public HashSet<FilmActor> FilmActors { get; set; }
     }
 }
